@@ -1,0 +1,39 @@
+package main
+
+import (
+	"fmt"
+	"unicode"
+)
+
+func UcFirst(str string) string {
+	for i, v := range str {
+		return string(unicode.ToUpper(v)) + str[i+1:]
+	}
+	return ""
+}
+
+func LcFirst(str string) string {
+	for i, v := range str {
+		return string(unicode.ToLower(v)) + str[i+1:]
+	}
+	return ""
+}
+
+func StrToCamelCase(str string) string {
+	if str == "ID" {
+		return "id"
+	}
+	return LcFirst(str)
+}
+
+func StructToCamelCase(stru struct) string {
+	if str == "ID" {
+		return "id"
+	}
+	return LcFirst(str)
+}
+
+func main() {
+	fmt.Println("LcFirst", StrToCamelCase("ID"))
+	fmt.Println("LcFirst", StrToCamelCase("Lisandro"))
+}
